@@ -1,0 +1,1 @@
+docker build -t my-spring-boot-app .
