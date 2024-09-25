@@ -13,9 +13,6 @@ RUN mvn package -Dmaven.test.failure.ignore=true
 # TEST REPORTS HANDLER
 FROM scratch AS reporter
 COPY --from=builder /usr/app/target/surefire-reports surefire-reports
-RUN pwd
-RUN ls -l
-RUN ls -l ./surefire-reports
 
 # APPLICATION
 FROM eclipse-temurin:17-jdk
