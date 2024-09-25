@@ -10,10 +10,6 @@ RUN mvn verify --fail-never
 ADD src $HOME/src
 RUN mvn package -Dmaven.test.failure.ignore=true
 
-# TEST REPORTS HANDLER
-FROM scratch AS reporter
-COPY --from=builder /usr/app/target/surefire-reports surefire-reports
-
 # APPLICATION
 FROM eclipse-temurin:17-jdk
 
