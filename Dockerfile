@@ -8,7 +8,7 @@ WORKDIR $HOME
 ADD pom.xml $HOME
 RUN mvn verify --fail-never
 ADD src $HOME/src
-RUN mvn package -Dmaven.test.failure.ignore=true
+RUN mvn package
 
 # APPLICATION
 FROM eclipse-temurin:17-jdk
