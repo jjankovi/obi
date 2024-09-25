@@ -12,6 +12,7 @@ RUN mvn package -Dmaven.test.failure.ignore=true
 
 # TEST REPORTS HANDLER
 FROM scratch AS reporter
+RUN ls -l /usr/app/target/surefire-reports
 COPY --from=builder /usr/app/target/surefire-reports ./
 
 # APPLICATION
