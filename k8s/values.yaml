@@ -1,5 +1,5 @@
 appName: obi
-namespace: obi-ns
+namespace: obi
 
 replicas: 1
 
