@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Values.appName }}
   namespace: {{ .Values.namespace }}
   labels: {
-    App: {{ .Chart.Name }}
+    App: {{ .Values.appName }}
   }
 
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      App: {{ .Chart.Name }}
+      App: {{ .Values.appName }}
   template:
     metadata:
       labels: {
-        App: {{ .Chart.Name }}
+        App: {{ .Values.appName }}
       }
     spec:
       containers:
@@ -23,8 +23,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: 80
           livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
+            httpGet:
+              path: /
           readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
+            httpGet:
+              path: /

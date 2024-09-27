@@ -1,22 +1,9 @@
-replicaCount: 0
-
+appName: obi
 namespace: obi-ns
+
+replicas: 1
 
 image:
   name: nginx
   repository: nginx
-  pullPolicy: IfNotPresent
   tag: ""
-
-service:
-  type: ClusterIP
-  port: 80
-
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
