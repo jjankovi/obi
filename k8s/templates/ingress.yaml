@@ -18,8 +18,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /*
             backend:
               service:
                 name: "{{ .Values.appName }}"
