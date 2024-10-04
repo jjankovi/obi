@@ -27,11 +27,11 @@ RUN aws --version
 WORKDIR /app
 
 COPY --from=builder /usr/app/target/*.jar app.jar
-COPY parameter_loader.sh .
+COPY paramsloader.sh .
 
 RUN     set -ex \
-        && chmod a+x ./parameter_loader.sh
+        && chmod a+x ./paramsloader.sh
 
 EXPOSE 8080
-ENTRYPOINT  ./parameter_loader.sh && \
-            java -jar app.jar
+ENTRYPOINT  paramsloader.sh && \
+            entrypoint.sh

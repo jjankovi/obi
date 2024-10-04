@@ -2,12 +2,16 @@
 
 # Set the SSM parameter prefix
 PARAM_PREFIX="/app/obi"
+ENV_FILE=".env"
+
+# Clear the output file before writing new content
+> "$ENV_FILE"
 
 # Get the parameters from AWS SSM Parameter Store
 load_parameters() {
   echo "Loading parameters from SSM Parameter Store with prefix: $PARAM_PREFIX"
 
-  # Get all parameters under the prefix and export them as environment variables
+  # Fetch parameters and write them to the .env file
   aws ssm get-parameters-by-path \
     --path "$PARAM_PREFIX" \
     --with-decryption \
@@ -16,9 +20,9 @@ load_parameters() {
     --output text | while IFS=$'\t' read -r name value; do
       # Remove the prefix from the parameter name to create the environment variable
       env_var_name=$(echo "$name" | sed "s|$PARAM_PREFIX/||" | tr '/' '_')
-      export "$env_var_name"="$value"
-      echo "Exported $env_var_name"
-    done
+      echo "$env_var_name=$value" >> "$ENV_FILE"
+      echo "Written $env_var_name=$value to $ENV_FILE"
+  done
 }
 
 # Call the function to load parameters
