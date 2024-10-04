@@ -21,11 +21,9 @@ spec:
       }
     spec:
       serviceAccountName: {{ .Values.serviceAccountName }}
-      restart_policy: "Always"
       containers:
         - name: {{ .Values.image.name }}
           image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
-          image_pull_policy: "Always"
           ports:
             - name: http
               containerPort: 8080

@@ -1,14 +1,14 @@
-kind: "Ingress"
 apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
 metadata:
   name: "{{ .Values.appName }}-ingress"
-  namespace: {{ .Values.namespace }}
+  namespace: { { .Values.namespace } }
   annotations: {
     kubernetes.io/ingress.class: "alb",
     alb.ingress.kubernetes.io/scheme: "internet-facing",
     alb.ingress.kubernetes.io/target-type: "ip",
     alb.ingress.kubernetes.io/load-balancer-attributes: "deletion_protection.enabled=false",
-    alb.ingress.kubernetes.io/subnets: {{ .Values.publicSubnets }},
+    alb.ingress.kubernetes.io/subnets: { { .Values.publicSubnets } },
     alb.ingress.kubernetes.io/healthcheck-path: "/",
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: "70",
     alb.ingress.kubernetes.io/healthcheck-port: "traffic-port",
@@ -21,7 +21,7 @@ spec:
         paths:
           - path: /*
             backend:
-                service:
-                name: {{ .Values.appName }}
-                port:
-                  number: 8080
+              service:
+              name: { { .Values.appName } }
+              port:
+                number: 8080
