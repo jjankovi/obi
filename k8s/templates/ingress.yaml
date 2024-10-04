@@ -22,6 +22,7 @@ spec:
           - path: /*
             backend:
               service:
-              name: { { .Values.appName } }
-              port:
-                number: 8080
+                name: {{ .Values.appName }}
+                port:
+                  number: 8080
+
