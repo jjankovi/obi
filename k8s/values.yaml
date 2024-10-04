@@ -1,9 +1,11 @@
 appName: obi
 namespace: obi-ns
 
-replicas: 1
+replicas: 0
+publicSubnets: ""
+serviceAccountName: ""
 
 image:
-  name: nginx
-  repository: nginx
-  tag: ""
+  name: "obi-repo"
+  repository: "058264153756.dkr.ecr.eu-central-1.amazonaws.com"
+  tag: "latest"
