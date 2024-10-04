@@ -1,3 +1,2 @@
 replicas: 1
 publicSubnets: "subnet-02c075fa48f375e4e,subnet-0be93e0cea0a84244,subnet-06bcea42c2d25341e"
-serviceAccountName: "obi-sa"

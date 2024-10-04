@@ -3,9 +3,9 @@ namespace: obi-ns
 
 replicas: 0
 publicSubnets: ""
-serviceAccountName: ""
+serviceAccountName: "obi-sa"
 
 image:
   name: "obi-repo"
   repository: "058264153756.dkr.ecr.eu-central-1.amazonaws.com"
-  tag: "latest"
+  tag: ""
