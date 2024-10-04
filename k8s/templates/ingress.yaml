@@ -12,7 +12,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: "/"
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: "5"
     alb.ingress.kubernetes.io/healthcheck-port: "8080"
-    alb.ingress.kubernetes.io/target-group-attributes: "deregistration_delay.timeout_seconds=60"
+    alb.ingress.kubernetes.io/target-group-attributes: "deregistration_delay.timeout_seconds=10"
     alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
 spec:
   rules:
