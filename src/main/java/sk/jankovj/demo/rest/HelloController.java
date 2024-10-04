@@ -13,7 +13,8 @@ public class HelloController {
 
     @GetMapping("/")
     public String sayHello() {
+        String environment = env.getProperty("environment");
         String test_url = env.getProperty("test.url");
-        return "Hello World!" + " " + test_url;
+        return environment + " Hello World!" + " " + test_url;
     }
 }
