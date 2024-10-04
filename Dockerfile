@@ -28,6 +28,7 @@ WORKDIR /app
 
 COPY --from=builder /usr/app/target/*.jar app.jar
 COPY paramsloader.sh .
+COPY entrypoint.sh .
 
 RUN     set -ex \
         && chmod a+x ./paramsloader.sh
