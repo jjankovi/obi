@@ -13,8 +13,6 @@ RUN mvn package
 # APPLICATION
 FROM eclipse-temurin:17-jdk
 
-
-# Install dependencies and AWS CLI v2
 RUN apt-get update && apt-get install -y \
     curl \
     unzip \
@@ -24,12 +22,16 @@ RUN apt-get update && apt-get install -y \
     && rm -rf awscliv2.zip aws \
     && apt-get clean
 
-# Verify the installation
 RUN aws --version
-RUN aws sts get-caller-identity
 
 WORKDIR /app
 
 COPY --from=builder /usr/app/target/*.jar app.jar
+COPY parameter_loader.sh .
+
+RUN     set -ex \
+        && chmod a+x ./parameter_loader.sh
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT  ./parameter_loader.sh && \
+            java -jar app.jar
