@@ -14,7 +14,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: "3"
     alb.ingress.kubernetes.io/healthcheck-port: "8080"
     alb.ingress.kubernetes.io/target-group-attributes: "deregistration_delay.timeout_seconds=10"
-    alb.ingress.kubernetes.io/healthy-threshold-count: "1"
+    alb.ingress.kubernetes.io/healthy-threshold-count: "2"
     alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
 spec:
   rules:
