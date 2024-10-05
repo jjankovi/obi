@@ -31,7 +31,8 @@ COPY paramsloader.sh .
 COPY entrypoint.sh .
 
 RUN     set -ex \
-        && chmod a+x ./paramsloader.sh
+        && chmod a+x ./paramsloader.sh \
+        && chmod a+x ./entrypoint.sh
 
 EXPOSE 8080
 ENTRYPOINT  /app/paramsloader.sh && \
