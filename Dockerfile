@@ -34,5 +34,5 @@ RUN     set -ex \
         && chmod a+x ./paramsloader.sh
 
 EXPOSE 8080
-ENTRYPOINT  paramsloader.sh && \
-            entrypoint.sh
+ENTRYPOINT  /app/paramsloader.sh && \
+            /app/entrypoint.sh
