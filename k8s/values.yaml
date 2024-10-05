@@ -2,7 +2,6 @@ appName: obi
 namespace: obi-ns
 
 replicas: 0
-publicSubnets: ""
 serviceAccountName: "obi-sa"
 
 image:
