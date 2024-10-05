@@ -24,8 +24,6 @@ load_parameters() {
       echo "Written $env_var_name=$value to $ENV_FILE"
   done
 
-  cat $ENV_FILE
-
 }
 
 # Call the function to load parameters
