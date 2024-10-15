@@ -11,7 +11,7 @@ ADD src $HOME/src
 RUN mvn package
 
 # APPLICATION
-FROM eclipse-temurin:17-jdk
+FROM 058264153756.dkr.ecr.eu-central-1.amazonaws.com/devops/eclipse:latest
 
 RUN apt-get update && apt-get install -y \
     curl \
