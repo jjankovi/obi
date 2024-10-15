@@ -27,7 +27,7 @@ class DemoApplicationTests {
 	@Test
 	void thirdTest() {
 		int value = 1;
-		assertFalse(value > 2);
+		assertFalse(value > 0);
 
 	}
 }
