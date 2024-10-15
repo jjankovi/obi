@@ -1,5 +1,5 @@
 # BUILDER
-FROM 058264153756.dkr.ecr.eu-central-1.amazonaws.com/devops/maven:latest AS builder
+FROM maven:3.9.2-eclipse-temurin-17 AS builder
 
 ENV HOME=/usr/app
 RUN mkdir -p $HOME
@@ -11,7 +11,7 @@ ADD src $HOME/src
 RUN mvn package
 
 # APPLICATION
-FROM 058264153756.dkr.ecr.eu-central-1.amazonaws.com/devops/eclipse:latest
+FROM eclipse-temurin:17-jdk
 
 RUN apt-get update && apt-get install -y \
     curl \
