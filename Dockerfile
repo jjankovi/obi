@@ -1,5 +1,5 @@
 # BUILDER
-FROM maven:3.9.2-eclipse-temurin-17 AS builder
+FROM 058264153756.dkr.ecr.eu-central-1.amazonaws.com/devops/maven:latest AS builder
 
 ENV HOME=/usr/app
 RUN mkdir -p $HOME
