@@ -16,4 +16,18 @@ class DemoApplicationTests {
 
 	}
 
+
+	@Test
+	void secondTest() {
+		int value = 1;
+		assertFalse(value > 1);
+
+	}
+
+	@Test
+	void thirdTest() {
+		int value = 1;
+		assertFalse(value > 2);
+
+	}
 }
