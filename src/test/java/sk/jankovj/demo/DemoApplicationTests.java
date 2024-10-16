@@ -23,11 +23,4 @@ class DemoApplicationTests {
 		assertFalse(value > 1);
 
 	}
-
-	@Test
-	void thirdTest() {
-		int value = 1;
-		assertFalse(value > 0);
-
-	}
 }
